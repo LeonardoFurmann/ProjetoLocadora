@@ -10,6 +10,7 @@
 //	using Microsoft.EntityFrameworkCore;
 //antes de rodar o dotnet run pela primeira vez, rodar os seguintes comandos para iniciar a base de dados:
 //	dotnet ef migrations add InitialCreate
+//dotnet tool install --global dotnet-ef
 //	dotnet ef database update
 
 using System;
@@ -24,13 +25,15 @@ namespace locadora
     {
     	public int id { get; set; }
 		public string? nome { get; set; }
-    	public string? email { get; set; }
+    	public string? endereco { get; set; }
+    	public string? telefone { get; set; }
         public int idade { get; set; }
     }
 
 	class Filme
     {
     	public int id { get; set; }
+    	public int classIndicativa { get; set; }
 		public string? nome { get; set; }
     	public string? diretor { get; set; }
         public string? dataLancamento { get; set; }
@@ -128,8 +131,9 @@ namespace locadora
 			{
 				var usuario = baseUsuarios.Usuarios.Find(id);
 				usuario.nome = usuarioAtualizado.nome;
-				usuario.email = usuarioAtualizado.email;
+				usuario.endereco = usuarioAtualizado.endereco;
 				usuario.idade = usuarioAtualizado.idade;
+				usuario.telefone = usuarioAtualizado.telefone;
 				baseUsuarios.SaveChanges();
 				return "Usuario atualizado.";
 			});
@@ -142,6 +146,7 @@ namespace locadora
 				filme.diretor = filmeAtualizado.diretor;
 				filme.dataLancamento = filmeAtualizado.dataLancamento;
 				filme.genero = filmeAtualizado.genero;
+				filme.classIndicativa = filmeAtualizado.classIndicativa;
 				baseFilmes.SaveChanges();
 				return "Filme atualizado.";
 			});
