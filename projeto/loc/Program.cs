@@ -10,7 +10,7 @@
 //	using Microsoft.EntityFrameworkCore;
 //antes de rodar o dotnet run pela primeira vez, rodar os seguintes comandos para iniciar a base de dados:
 //	dotnet ef migrations add InitialCreate
-//dotnet tool install --global dotnet-ef
+//  dotnet tool install --global dotnet-ef
 //	dotnet ef database update
 
 using System;
